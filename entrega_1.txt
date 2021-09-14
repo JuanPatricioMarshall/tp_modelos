@@ -1,0 +1,24 @@
+Impresion inicial del problema:
+- dada una cantidad de prendas, cada una con su tiempo de lavado y una coleccion de incompatibilidades para no lavar
+ciertas prendas en conjunto ya que se destiñen, debemos diseñar un plan de lavado para que tardemos lo minimo posible.
+
+- A su vez, tenemos que tener en cuenta que cada lavado va a tardar lo que tarde en lavarse la prenda que mas sucia se
+encuentre (y por lo tanto tarde mas)
+
+Ideas de como lo van a intentar resolver:
+- Algo que voy a tener que hacer en todos los problemas, va a ser leer la configuracion de entrada del archivo txt.
+Para hacerlo mas sencillo, voy a sacar del archivo de input las letras y comentarios, ya que teniendo la cantidad de prendas
+y de incompatibilidades ya puedo parsear correctamente el archivo.
+
+- Voy a tratar de resolverlo 1ero con un approach Greedy. Ordenando todas las prendas por tiempo de lavado, y buscando las
+k prendas compatibles a esa, para mandarlas en el mismo lavado. (ESTO ES POSIBLE YA QUE NO HAY LIMITE DE #PRENDAS EN UN LAVADO)
+
+- Cada vez que agrego una prenda al lavado, empiezo a tomar en cuenta sus incompatibilidades propias
+
+Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
+- Probablemente tenga que agregar algo para checkear que mi solucion al menos cumple las compatibilidades.
+
+- Tambien es probable que me convenga analizar intersecciones entre comaptibilidades de las prendas.
+
+comentarios finales
+
