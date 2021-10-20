@@ -15,6 +15,18 @@ la iteracion de eso.
 nit: agregue que saque la salida directo a std.out asi no tengo que copy pastear el output de la consola como hacia antes
 cuando el output era mas corto.
 
+Despues de intentar subir la solucion con el algoritmo sin modificar, no pude ya que mi modelo/programa estaba generando
+soluciones en realidad incompatibles, probablemente no tomando en cuenta varias restricciones.
+Despues de analizar rapido una de las restricciones que no se estaban cumpliendo, me di cuenta que el formato del input.txt
+cambio un poco.
+Antes, cada restriccion i j (prenda i no se puede lavar con prenda j) estaba duplicada por la restriccion j i.
+Esta actual version asume que se sobreentiende que si existe la incompatibilidad i j, j i tambien existe pero no
+tiene que escribirla. Por esto ninguna prenda i tiene escritas restricciones a un j mas chico que ese i (por que si tenia
+una restriccion ya hubiese aparecido antes en el listado).
+Y estoy muy seguro que mi programa necesitaba tener ambas restricciones para poder armar soluciones compatibles.
+
+Asi que cambie para que en mi diccionario en memoria se "indexe" la incompatiblidad i j para ambos sentidos.
+
 Comentarios finales
 
 //TODO

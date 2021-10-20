@@ -23,6 +23,10 @@ with open(INPUT_FILENAME) as input:
         incompatibilidad_para_esta_prenda.append(prenda_incompatible)
         incompatibilidades[prenda] = incompatibilidad_para_esta_prenda
 
+        incompatibilidad_para_esta_otra_prenda = incompatibilidades.get(prenda_incompatible, [])
+        incompatibilidad_para_esta_otra_prenda.append(prenda)
+        incompatibilidades[prenda_incompatible] = incompatibilidad_para_esta_otra_prenda
+
     for _ in range(cant_prendas):
         prenda, peso_prenda  = input.readline().split()
         prendas[prenda] = int(peso_prenda)
