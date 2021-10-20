@@ -1,5 +1,9 @@
+import sys
 
 INPUT_FILENAME = "input.txt"
+OUTPUT_FILENAME = "output.txt"
+
+sys.stdout = open(OUTPUT_FILENAME, 'w')
 
 with open(INPUT_FILENAME) as input:
     header = input.readline().split()
@@ -7,7 +11,7 @@ with open(INPUT_FILENAME) as input:
     cant_prendas = int(header[0])
     cant_incompatibilidades = int(header[1])
 
-    print(f'{cant_incompatibilidades} + {cant_prendas}')
+    #print(f'{cant_incompatibilidades} + {cant_prendas}')
 
     incompatibilidades = {}
     prendas = {}
@@ -38,7 +42,7 @@ with open(INPUT_FILENAME) as input:
         prendas_usadas.add(prenda)
         for j in range(i+1, len(prendas_ordenadas)):
             posible_prenda = prendas_ordenadas[j]
-            if posible_prenda not in prendas_usadas and posible_prenda not in prendas_incompatibles :
+            if posible_prenda not in prendas_usadas and posible_prenda not in prendas_incompatibles:
                 prendas_usadas.add(posible_prenda)
                 lavado.add(posible_prenda)
                 prendas_incompatibles += incompatibilidades.get(posible_prenda, [])
@@ -48,3 +52,4 @@ with open(INPUT_FILENAME) as input:
         lavado = set()
 
 
+sys.stdout.close()

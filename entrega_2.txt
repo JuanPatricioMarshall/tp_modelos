@@ -1,0 +1,20 @@
+Ideas de como van a resolver esta instancia
+
+Para esta 2da entrega, al analizar que la entrada es mucho mas grande que la de la 1er entrega, fuerza bruta capaz no
+es una opcion viable
+
+Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
+
+Por ahora voy a simplemente analizar las dimensiones del nuevo input, y probar mi solucion de la anterior entrega.
+En base a esto probablemente tenga mas claro para donde avanzar.
+
+Pasamos de tener 20 prendas y 120 restricciones a 385 prendas y 19095 restricciones.
+No deberia ser un problema para mi solucion original, ya que era una recorrida lineal + un sort de n * log n +
+la iteracion de eso.
+
+nit: agregue que saque la salida directo a std.out asi no tengo que copy pastear el output de la consola como hacia antes
+cuando el output era mas corto.
+
+Comentarios finales
+
+//TODO
