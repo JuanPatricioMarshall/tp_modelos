@@ -34,6 +34,9 @@ Ya de una sin subir la solucion puedo anticipar que aumente la cantidad de lavad
 haya empeorado. Lo cual tiene sentido siguiendo mi logica original "Greedy" de juntar las prendas mas costosas juntas
 con el objetivo de maximizar el tiempo ahorrado.
 
+Como habia previsto, esto solo empeoro mi score a 757. Lo cual tiene sentido, ya que fui juntando prendas compatibles
+fijando la mas chica posible primero. Rollbackeo a la version anterior.
+
 Comentarios finales
 
 //TODO
