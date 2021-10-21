@@ -31,7 +31,7 @@ with open(INPUT_FILENAME) as input:
         prenda, peso_prenda  = input.readline().split()
         prendas[prenda] = int(peso_prenda)
 
-    prendas_ordenadas = sorted(prendas, key=prendas.get, reverse=True)
+    prendas_ordenadas = sorted(prendas, key=prendas.get, reverse=False)
 
     prendas_usadas = set()
     nro_lavado = 1

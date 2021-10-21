@@ -27,6 +27,13 @@ Y estoy muy seguro que mi programa necesitaba tener ambas restricciones para pod
 
 Asi que cambie para que en mi diccionario en memoria se "indexe" la incompatiblidad i j para ambos sentidos.
 
+Con ese ultimo cambio, logre obtener una solucion compatible con un puntaje de 493, usando 40 tandas de lavados.
+
+Voy a probar que pasa si en vez de iterar por las prendas mas costosas en tiempo, ordeno por las de menos tiempo.
+Ya de una sin subir la solucion puedo anticipar que aumente la cantidad de lavados, por lo que es probable que el score
+haya empeorado. Lo cual tiene sentido siguiendo mi logica original "Greedy" de juntar las prendas mas costosas juntas
+con el objetivo de maximizar el tiempo ahorrado.
+
 Comentarios finales
 
 //TODO
