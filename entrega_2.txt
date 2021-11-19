@@ -75,3 +75,5 @@ Al final se me ocurrio usar en el peso de la prenda en el grafo la cantidad coma
 mas incompatibles. Ya en local veo que mejore de 317 a 308.
 
 Hice una prueba mas calculando el peso solamente como peso * cant_incompatibilidades, consiguiendo un score record (para mi) de 276
+Jugando con los pesos, al costo de lavar le sume la cantidad de prendas y a la cant_incompatibilidades el peso maximo que puede tomar
+una prenda. Llegando a otro record de 274.

@@ -8,7 +8,7 @@ OUTPUT_FILENAME = "output.txt"
 sys.stdout = open(OUTPUT_FILENAME, 'w')
 
 def calcular_peso(cant_incompatibilidades, cant_prendas, peso_prenda):
-    return (peso_prenda) * (cant_incompatibilidades)
+    return (peso_prenda + 385) * (cant_incompatibilidades + 20)
 
 with open(INPUT_FILENAME) as input:
     header = input.readline().split()
