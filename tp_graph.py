@@ -57,12 +57,12 @@ with open(INPUT_FILENAME) as input:
         prendas_a_lavar = maximum_independent_set(incompatibilidades_graph)
         incompatibilidades_graph.remove_nodes_from(prendas_a_lavar)
         for prenda in prendas_a_lavar:
-            print(f'{prenda},{lavado}')
+            print(f'{prenda} {lavado}')
         lavado += 1
     prenda_suelta = incompatibilidades_graph.nodes()
     if len(prenda_suelta) != 0:
         for node in prenda_suelta:
-            print(f'{node},{lavado}')
+            print(f'{node} {lavado}')
             lavado += 1
 
 sys.stdout.close()
