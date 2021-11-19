@@ -47,9 +47,13 @@ incompatibilidad.
 Voy a probar un simple cambio, voy a gurdar como peso de la prenda en el grafo el peso de la maxima compatible.
 Sinceramente no creo que performe mejor, pero intuitivamente pareceria que si quiero minimizar el gasto de tiempo en lavado
 deberia armar lavados maximizando el ahorro.
+Esto mejoro considerablemente llegando al mejor puntaje hasta ahora, de 317.
 
 Mi ultimo intento mejoro el puntaje. Voy a probar yendo un paso mas, solo updateando el peso en el grafo si el peso nuevo
 es mejor que el anterior.
+Fue un poco peor que el anterior, 330.
+
+Voy a hacer una ultima prueba quedandome con el minimo de los pesos que voy viendo.
 
 Comentarios finales
 

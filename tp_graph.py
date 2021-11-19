@@ -58,15 +58,14 @@ with open(INPUT_FILENAME) as input:
                 peso_otra_prenda = prendas[otra_prenda]
                 peso_max = max(peso_prenda, peso_otra_prenda)
 
-                compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
-
                 weights = nx.get_node_attributes(compatibilidades, 'weight')
 
-                if weights[prenda] < peso_max:
-                    nx.set_node_attributes(compatibilidades, {prenda: {'weight': peso_max}})
+                nx.set_node_attributes(compatibilidades, {prenda: {'weight': min(peso_max, peso_prenda)}})
 
-                if weights[otra_prenda] < peso_max:
-                    nx.set_node_attributes(compatibilidades, {otra_prenda: {'weight': peso_max}})
+                nx.set_node_attributes(compatibilidades, {otra_prenda: {'weight': min(peso_max, peso_otra_prenda)}})
+
+                compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
+
     lavado = 1
     while compatibilidades.size() != 0:
         prendas_a_lavar = max_weight_clique(compatibilidades, weight='weight')[0]
@@ -74,6 +73,9 @@ with open(INPUT_FILENAME) as input:
         for prenda in prendas_a_lavar:
             print(f'{prenda} {lavado}')
         lavado += 1
+        if len(prendas_a_lavar) == 0:
+            break
+
     prenda_suelta = compatibilidades.nodes()
     if len(prenda_suelta) != 0:
         for node in prenda_suelta:
