@@ -48,6 +48,9 @@ Voy a probar un simple cambio, voy a gurdar como peso de la prenda en el grafo e
 Sinceramente no creo que performe mejor, pero intuitivamente pareceria que si quiero minimizar el gasto de tiempo en lavado
 deberia armar lavados maximizando el ahorro.
 
+Mi ultimo intento mejoro el puntaje. Voy a probar yendo un paso mas, solo updateando el peso en el grafo si el peso nuevo
+es mejor que el anterior.
+
 Comentarios finales
 
 //TODO

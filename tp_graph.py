@@ -57,11 +57,16 @@ with open(INPUT_FILENAME) as input:
                 # capaz en algun momento me convenga guardar el peso de las aristas
                 peso_otra_prenda = prendas[otra_prenda]
                 peso_max = max(peso_prenda, peso_otra_prenda)
+
                 compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
-                nx.set_node_attributes(compatibilidades, {prenda: {'weight': peso_max}})
-                nx.set_node_attributes(compatibilidades, {otra_prenda: {'weight': peso_max}})
 
+                weights = nx.get_node_attributes(compatibilidades, 'weight')
 
+                if weights[prenda] < peso_max:
+                    nx.set_node_attributes(compatibilidades, {prenda: {'weight': peso_max}})
+
+                if weights[otra_prenda] < peso_max:
+                    nx.set_node_attributes(compatibilidades, {otra_prenda: {'weight': peso_max}})
     lavado = 1
     while compatibilidades.size() != 0:
         prendas_a_lavar = max_weight_clique(compatibilidades, weight='weight')[0]
