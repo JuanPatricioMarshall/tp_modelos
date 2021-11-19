@@ -37,6 +37,12 @@ con el objetivo de maximizar el tiempo ahorrado.
 Como habia previsto, esto solo empeoro mi score a 757. Lo cual tiene sentido, ya que fui juntando prendas compatibles
 fijando la mas chica posible primero. Rollbackeo a la version anterior.
 
+Voy a probar un enfoque distinto. Voy a intentar de analizarlo como un grafo, donde cada prenda es un nodo y cada
+incompatibilidad es una arista. De esta manera, voy a buscar los conjuntos independientes mas grandes, que si no me estoy
+confundiendo van a ser grupos de prendas compatibles.
+Definitivamente hay espacio para optimizar esto usando de alguna forma los pesos, que estoy completamente obviando.
+No creo que esta corrida performe mejor que la de 493. Ya de por si puedo ver que armo mas tandas de lavado que esa (45 vs 40)
+
 Comentarios finales
 
 //TODO
