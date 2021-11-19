@@ -44,6 +44,10 @@ en conjunto. Pero agrupar lavados que sean muy pesados en total, es una buena ap
 en cada armado. Tiene potencial ya que armo solo 22 tandas de lavado. Aunque me da miedo que este ignorando alguna
 incompatibilidad.
 
+Voy a probar un simple cambio, voy a gurdar como peso de la prenda en el grafo el peso de la maxima compatible.
+Sinceramente no creo que performe mejor, pero intuitivamente pareceria que si quiero minimizar el gasto de tiempo en lavado
+deberia armar lavados maximizando el ahorro.
+
 Comentarios finales
 
 //TODO

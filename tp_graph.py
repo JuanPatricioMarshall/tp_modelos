@@ -58,6 +58,9 @@ with open(INPUT_FILENAME) as input:
                 peso_otra_prenda = prendas[otra_prenda]
                 peso_max = max(peso_prenda, peso_otra_prenda)
                 compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
+                nx.set_node_attributes(compatibilidades, {prenda: {'weight': peso_max}})
+                nx.set_node_attributes(compatibilidades, {otra_prenda: {'weight': peso_max}})
+
 
     lavado = 1
     while compatibilidades.size() != 0:
