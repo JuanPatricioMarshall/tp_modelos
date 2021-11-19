@@ -73,3 +73,5 @@ los nodos que quedan en el grafo.
 
 Al final se me ocurrio usar en el peso de la prenda en el grafo la cantidad comaptibilidades. Dandole prioridad a las prendas
 mas incompatibles. Ya en local veo que mejore de 317 a 308.
+
+Hice una prueba mas calculando el peso solamente como peso * cant_incompatibilidades, consiguiendo un score record (para mi) de 276
