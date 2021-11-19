@@ -8,6 +8,8 @@ OUTPUT_FILENAME = "output.txt"
 
 sys.stdout = open(OUTPUT_FILENAME, 'w')
 
+def calcular_peso(cant_compatibilidades, cant_prendas, peso_prenda):
+    return peso_prenda * (cant_prendas / cant_compatibilidades) * 100
 
 with open(INPUT_FILENAME) as input:
     header = input.readline().split()
@@ -31,6 +33,7 @@ with open(INPUT_FILENAME) as input:
         prendas[int(prenda)] = int(peso_prenda)
 
     prendas_posibles = list(range(1, cant_prendas + 1))
+
     for prenda in prendas_posibles:
         compatibilidades.add_node(prenda, weight=prendas[prenda])
         incompatibilidades_graph.add_node(prenda)
@@ -50,26 +53,47 @@ with open(INPUT_FILENAME) as input:
 
         incompatibilidades_graph.add_edge(prenda, prenda_incompatible)
 
+
     for prenda, prendas_incompatibles in incompatibilidades.items():
         for otra_prenda in prendas_posibles:
             if otra_prenda not in prendas_incompatibles and otra_prenda != prenda:
-                peso_prenda = prendas[prenda]
-                # capaz en algun momento me convenga guardar el peso de las aristas
-                peso_otra_prenda = prendas[otra_prenda]
-                peso_max = max(peso_prenda, peso_otra_prenda)
+                compatibilidades.add_edge(prenda, otra_prenda)
 
-                weights = nx.get_node_attributes(compatibilidades, 'weight')
+    weights = nx.get_node_attributes(compatibilidades, 'weight')
 
-                nx.set_node_attributes(compatibilidades, {prenda: {'weight': min(peso_max, peso_prenda)}})
+    for prenda, incompatibilidades in incompatibilidades.items():
+        cant_incompatibilidades_de_prenda = len(incompatibilidades)
+        cant_compatibilidades = cant_prendas - cant_incompatibilidades_de_prenda
+        peso_prenda = prendas[prenda]
+        weight = calcular_peso(cant_compatibilidades, cant_prendas, peso_prenda)
+        nx.set_node_attributes(compatibilidades, {prenda: {'weight': int(weight)}})
 
-                nx.set_node_attributes(compatibilidades, {otra_prenda: {'weight': min(peso_max, peso_otra_prenda)}})
-
-                compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
 
     lavado = 1
+    prendas_lavadas = []
     while compatibilidades.size() != 0:
         prendas_a_lavar = max_weight_clique(compatibilidades, weight='weight')[0]
         compatibilidades.remove_nodes_from(prendas_a_lavar)
+        prendas_lavadas += prendas_a_lavar
+        # for prenda, prendas_incompatibles in incompatibilidades.items():
+        #     for otra_prenda in prendas_posibles:
+        #         if otra_prenda not in prendas_incompatibles and otra_prenda != prenda and prenda not in prendas_lavadas and otra_prenda not in prendas_lavadas:
+        #             peso_prenda = prendas[prenda]
+        #             # capaz en algun momento me convenga guardar el peso de las aristas
+        #             peso_otra_prenda = prendas[otra_prenda]
+        #             peso_max = max(peso_prenda, peso_otra_prenda)
+        #
+        #             weights = nx.get_node_attributes(compatibilidades, 'weight')
+        #
+        #             if weights[prenda] < peso_max:
+        #                 nx.set_node_attributes(compatibilidades,
+        #                                        {prenda: {'weight': max(peso_max - peso_prenda, peso_prenda)}})
+        #
+        #             if weights[otra_prenda] < peso_max:
+        #                 nx.set_node_attributes(compatibilidades, {
+        #                     otra_prenda: {'weight': min(peso_max - peso_otra_prenda, peso_otra_prenda)}})
+        #
+        #             compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
         for prenda in prendas_a_lavar:
             print(f'{prenda} {lavado}')
         lavado += 1

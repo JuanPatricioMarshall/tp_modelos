@@ -54,7 +54,22 @@ es mejor que el anterior.
 Fue un poco peor que el anterior, 330.
 
 Voy a hacer una ultima prueba quedandome con el minimo de los pesos que voy viendo.
+Esto me llevo a un puntaje de 362. Peor que antes
+Ya acercandome a la fecha de entrega y viendo el ranking como esta, a menos que se me ocurra algo estos dias el algoritmo
+que dio 317 va a ser mi mejor solucion.
 
 Comentarios finales
+Ya aumentando el tamaño de la entrada, aumentando muchisimo la cantidad de prendas y aun mas de restricciones, fureza bruta
+no es una opcion.
+Mi solucion anterior ya de por si era una aproximacion Greedy, y obtenia resultados bastante buenos y de manera muy rapida,
+pero no lo suficientemente precisa como veia que otros habian podido alcanzar en la tabla de rankings.
+Investigando un poco, releyendo un poco de teoria de grafos estuve jugando un rato con sets de prendas independientes lo mas
+grande posibles. Esto performo peor que mi solucion anterior ya que no consideraba para nada los pesos de las prendas.
+Pero luego utilizando la teoria de cliques (subgrafos completos dentro de un grafo) pude armar un algoritmo donde usando
+el algoritmo preescrito de clique de peso maximo, armaba cada tanda de lavado, actualizando el grafo de compatibilidades
+y volviendo a repetir el calculo del clique de peso maximo sobre el nuevo estado actual del grafo.
+Evidentemente debe haber una vuelta de tuerca mas, capaz deberia actualizar todos los pesos del grafo tomando en cuenta solo
+los nodos que quedan en el grafo.
 
-//TODO
+Al final se me ocurrio usar en el peso de la prenda en el grafo la cantidad comaptibilidades. Dandole prioridad a las prendas
+mas incompatibles. Ya en local veo que mejore de 317 a 308.
