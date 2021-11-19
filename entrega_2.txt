@@ -1,20 +1,14 @@
 Ideas de como van a resolver esta instancia
-
 Para esta 2da entrega, al analizar que la entrada es mucho mas grande que la de la 1er entrega, fuerza bruta capaz no
 es una opcion viable
 
 Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
-
 Por ahora voy a simplemente analizar las dimensiones del nuevo input, y probar mi solucion de la anterior entrega.
 En base a esto probablemente tenga mas claro para donde avanzar.
 
 Pasamos de tener 20 prendas y 120 restricciones a 385 prendas y 19095 restricciones.
 No deberia ser un problema para mi solucion original, ya que era una recorrida lineal + un sort de n * log n +
 la iteracion de eso.
-
-nit: agregue que saque la salida directo a std.out asi no tengo que copy pastear el output de la consola como hacia antes
-cuando el output era mas corto.
-
 Despues de intentar subir la solucion con el algoritmo sin modificar, no pude ya que mi modelo/programa estaba generando
 soluciones en realidad incompatibles, probablemente no tomando en cuenta varias restricciones.
 Despues de analizar rapido una de las restricciones que no se estaban cumpliendo, me di cuenta que el formato del input.txt
@@ -24,16 +18,13 @@ Esta actual version asume que se sobreentiende que si existe la incompatibilidad
 tiene que escribirla. Por esto ninguna prenda i tiene escritas restricciones a un j mas chico que ese i (por que si tenia
 una restriccion ya hubiese aparecido antes en el listado).
 Y estoy muy seguro que mi programa necesitaba tener ambas restricciones para poder armar soluciones compatibles.
-
 Asi que cambie para que en mi diccionario en memoria se "indexe" la incompatiblidad i j para ambos sentidos.
-
 Con ese ultimo cambio, logre obtener una solucion compatible con un puntaje de 493, usando 40 tandas de lavados.
 
 Voy a probar que pasa si en vez de iterar por las prendas mas costosas en tiempo, ordeno por las de menos tiempo.
 Ya de una sin subir la solucion puedo anticipar que aumente la cantidad de lavados, por lo que es probable que el score
 haya empeorado. Lo cual tiene sentido siguiendo mi logica original "Greedy" de juntar las prendas mas costosas juntas
 con el objetivo de maximizar el tiempo ahorrado.
-
 Como habia previsto, esto solo empeoro mi score a 757. Lo cual tiene sentido, ya que fui juntando prendas compatibles
 fijando la mas chica posible primero. Rollbackeo a la version anterior.
 
@@ -42,6 +33,16 @@ incompatibilidad es una arista. De esta manera, voy a buscar los conjuntos indep
 confundiendo van a ser grupos de prendas compatibles.
 Definitivamente hay espacio para optimizar esto usando de alguna forma los pesos, que estoy completamente obviando.
 No creo que esta corrida performe mejor que la de 493. Ya de por si puedo ver que armo mas tandas de lavado que esa (45 vs 40)
+Como pensaba, performo peor que la version anterior, con un gasto de 756.
+
+nit: limpie un poco el txt de entrega_2 para que quede mas corto. Ver historial entero para todos los detalles de ser necesario.
+
+Luego del intento fallido de conjuntos independientes de incompatibilidades, fui por lo contrario. Buscar dentro de las
+compatibilidades los cliques que mas peso tengan. De esta forma, deberia poder armar el lavado mas pesado en cada tanda.
+Sin embargo, esto no es lo optimo ya que en cada clique en realidad solo me interesa la prenda mas pesada, no el peso del clique
+en conjunto. Pero agrupar lavados que sean muy pesados en total, es una buena aproximacion para mi, ya que se ahorra mucho
+en cada armado. Tiene potencial ya que armo solo 22 tandas de lavado. Aunque me da miedo que este ignorando alguna
+incompatibilidad.
 
 Comentarios finales
 

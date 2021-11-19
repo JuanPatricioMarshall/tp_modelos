@@ -1,12 +1,12 @@
 import sys
 import networkx as nx
+from networkx import max_weight_clique
 from networkx.algorithms.approximation import maximum_independent_set
 
 INPUT_FILENAME = "input.txt"
 OUTPUT_FILENAME = "output.txt"
 
 sys.stdout = open(OUTPUT_FILENAME, 'w')
-
 
 
 with open(INPUT_FILENAME) as input:
@@ -20,18 +20,25 @@ with open(INPUT_FILENAME) as input:
     incompatibilidades_graph = nx.Graph()
 
     prendas = {}
-
-    prendas_posibles = list(range(1, cant_prendas))
-    for prenda in prendas_posibles:
-        compatibilidades.add_node(prenda)
-        incompatibilidades_graph.add_node(prenda)
-
+    incompatibilidades_list = []
 
     for _ in range(cant_incompatibilidades):
-        prenda, prenda_incompatible = input.readline().split()
+        incompatibilidad = input.readline().split()
+        incompatibilidades_list.append(incompatibilidad)
 
-        prenda = int(prenda)
-        prenda_incompatible = int(prenda_incompatible)
+    for _ in range(cant_prendas):
+        prenda, peso_prenda = input.readline().split()
+        prendas[int(prenda)] = int(peso_prenda)
+
+    prendas_posibles = list(range(1, cant_prendas + 1))
+    for prenda in prendas_posibles:
+        compatibilidades.add_node(prenda, weight=prendas[prenda])
+        incompatibilidades_graph.add_node(prenda)
+
+    for incompatibilidad in incompatibilidades_list:
+
+        prenda = int(incompatibilidad[0])
+        prenda_incompatible = int(incompatibilidad[1])
 
         incompatibilidad_para_esta_prenda = incompatibilidades.get(prenda, set())
         incompatibilidad_para_esta_prenda.add(prenda_incompatible)
@@ -43,23 +50,23 @@ with open(INPUT_FILENAME) as input:
 
         incompatibilidades_graph.add_edge(prenda, prenda_incompatible)
 
-    for _ in range(cant_prendas):
-        prenda, peso_prenda  = input.readline().split()
-        prendas[prenda] = int(peso_prenda)
-
     for prenda, prendas_incompatibles in incompatibilidades.items():
         for otra_prenda in prendas_posibles:
             if otra_prenda not in prendas_incompatibles and otra_prenda != prenda:
-                compatibilidades.add_edge(prenda, otra_prenda)
+                peso_prenda = prendas[prenda]
+                # capaz en algun momento me convenga guardar el peso de las aristas
+                peso_otra_prenda = prendas[otra_prenda]
+                peso_max = max(peso_prenda, peso_otra_prenda)
+                compatibilidades.add_edge(prenda, otra_prenda, weight=peso_max)
 
     lavado = 1
-    while incompatibilidades_graph.size() != 0:
-        prendas_a_lavar = maximum_independent_set(incompatibilidades_graph)
-        incompatibilidades_graph.remove_nodes_from(prendas_a_lavar)
+    while compatibilidades.size() != 0:
+        prendas_a_lavar = max_weight_clique(compatibilidades, weight='weight')[0]
+        compatibilidades.remove_nodes_from(prendas_a_lavar)
         for prenda in prendas_a_lavar:
             print(f'{prenda} {lavado}')
         lavado += 1
-    prenda_suelta = incompatibilidades_graph.nodes()
+    prenda_suelta = compatibilidades.nodes()
     if len(prenda_suelta) != 0:
         for node in prenda_suelta:
             print(f'{node} {lavado}')
