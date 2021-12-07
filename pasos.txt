@@ -1,19 +1,21 @@
-c Pasos
-c 1) Prueben correr el codigo sin cambios
-c 2) Mejora sobre buscarSolucionInicial
-c	a) Obtengan una solucion aproximada usando la heuristica desarrollada para la entrega anterior
-c	b) Hardcodeen esa solucion para que el metodo buscarSolucionInicial la devuelva
-c 3) Modifiquen el maxColor a la cantidad de lavados de la solucion obtenida en 2a
-c 4) Prueben agregar la siguiente restriccion, pueden encontrar las restricciones a continuacion de la linea "coeficienteVariables = (double*) malloc(Nr_vert * sizeof(double));"
-c
-c	//Eliminacion Simetria por Xk>=Xk+1
-c	for (k = 0; k < maximoColor - 1; k++) {
-c		posicionVariables[0] = k;
-c		coeficienteVariables[0] = 1;
-c		posicionVariables[1] = k + 1;
-c		coeficienteVariables[1] = -1;
-c		status = CPXaddrows(env, lp, 0, 1, 2, NULL, "G", &zero, posicionVariables, coeficienteVariables, NULL, NULL);
-c		if (status)
-c			goto TERMINATE;
-c	}
+ Pasos
+ 1) Prueben correr el codigo sin cambios
+ 2) Mejora sobre buscarSolucionInicial
+	a) Obtengan una solucion aproximada usando la heuristica desarrollada para la entrega anterior
+	b) Hardcodeen esa solucion para que el metodo buscarSolucionInicial la devuelva
+ 3) Modifiquen el maxColor a la cantidad de lavados de la solucion obtenida en 2a
+ 4) Prueben agregar la siguiente restriccion, pueden encontrar las restricciones a continuacion de la linea "coeficienteVariables = (double*) malloc(Nr_vert * sizeof(double));"
+
+	//Eliminacion Simetria por Xk>=Xk+1
+	for (k = 0; k < maximoColor - 1; k++) {
+		posicionVariables[0] = k;
+		coeficienteVariables[0] = 1;
+		posicionVariables[1] = k + 1;
+		coeficienteVariables[1] = -1;
+		status = CPXaddrows(env, lp, 0, 1, 2, NULL, "G", &zero, posicionVariables, coeficienteVariables, NULL, NULL);
+		if (status)
+			goto TERMINATE;
+	}
+
+
 

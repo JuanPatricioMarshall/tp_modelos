@@ -1,4 +1,5 @@
 - Ideas de como van a resolver esta instancia
+
 Primero voy a seguir los pasos del enunciado.
 Voy a comprobar mi heuristica de la entrega anterior frente al input nuevo y ver que puntaje estoy consiguiendo. Asumiria
 que mi heuristica estaba "floja de papeles" y que no es la solucion optima.
@@ -11,4 +12,45 @@ Subo esta solucion inicial y a mitad de los pasos para ya tener subido algo.
 
 - Comentarios sobre el impacto de los pasos que van aplicando
 
+Agregue un programa python para pasar de mi output a un codigo hardcodeado del metodo buscarSolucionInicial provisto en el
+codigo fuente del TP.
+Ya puedo ver al ppio de la corrida nueva, como el best integer ya al principio es el 111 al que llegaba con mi heuristica.
+Luego de un par de iteraciones de B&C llego a un best integer de 99, aun lejos del optimo conocido 91.
+
+Al limitar la cantidad maxima de colores, el programa pudo llegar al optimo de 91, aunque sin cerrar el programa en un tiempo aceptable.
+Simplemente ayudo al modelo a limitar un monton el poliedro de soluciones posibles, al ya limitar de una la cantidad de lavados maximo.
+
+Luego, al agregar la nueva restriccion en el paso 4, el programa llega a la solucion optima de 91 aun mas rapido e incluso
+llega a terminar exitosamente el programa en sí.
+
+Esta nueva restriccion elimina todas las posibles soluciones que existen que sean simetricas entre si.
+Haciendo memoria a las clases teoricas, cuando vimos el problema de coloreo de grafos se analizaron varias formas de agilizar
+el proceseo de encontrar soluciones. La relajacion lineal no era viable en el problema del colorea, ya que terminaria armando
+todo de 2 colores con 0.5 cada uno.
+Lo que sí es viable, es eliminar las simetrias donde 2 coloreos son teoricamente iguales pero donde cambian que color / numero
+se usa en cada uno.
+
 - Comentarios finales
+
+Pudimos ver en esta serie de entregas, que no existen balas de plata. Cada entrega, tenia una topologia distinta en cuanto
+a las dimensiones y variabilidades dentro del data set de entrada.
+Para la 1er entrega, implementar fuerza bruta y checkear cual era el verdadero optimo resulto algo alcanzable y que dado
+que el dataset no era tan grande (ni en cant de prendas o cant de restricciones), fuerza bruta era algo computable.
+Sin embargo, yo en esa entrega segui apostando por un algoritmo greedy tomando como heuristica de armar lavados en orden
+eligiendo la prenda mas pesada sin lavar, y juntandole en su lavado todas sus compatibles. Esta heuristica llegaba a un resultado
+un poco peor que el optimo, pero tardaba muchisimo menos en computar que utilizando fuerza bruta.
+Luego en la 2da entrega, mi algoritmo greedy seguia computando en muy poco tiempo a pesar del nuevo dominio del problema con
+muchas mas prendas e incompatibilidades que antes. Lo que si, mi heuristica cada vez se estaba quedando mas atras de los
+demas puntajes subidos por mis compañeros en la pagina, y obviamente, mas lejos del optimo.
+Es verdad que la heuristica y su performance dependera de sobre que datos se usan, pero tampoco era mucho mas inteligente
+que ordenar y agarrar lo que pudiera.
+En ese punto se me ocurrio pensarlo mas generico, como un simple problema de grafos donde necesitaba buscar cliques de peso maximo
+de forma de que cada uno represente un nuevo lavado. Este problema es un problema ya resuelto/conocido por lo que ahora
+la optimizacion/heuristica pasaba en como definir los puntajes/pesos de cada prenda dentro del grafo donde buscaba los
+cliques maximos.
+Finalmente en la 3er entrega, ya usando una herramienta mucho mas poderosa como CPLEX y el algoritmo de branch and cut,
+pudimos llegar al optimo absoluto para el 3er dataset. Para ello use mi aproximacion usando mi algoritmo de la entrega 2
+y recortamos la cantidad maxima de tanda de lavados, y a la par, eliminamos las simetrias, para asi lograr que el programa
+pueda computar el optimo en un periodo de tiempo aceptable.
+Dentro del proyecto, dejo el codigo modificado de lhk_branch_and_cut.c y las corridas del programa en el paso 3 y en el
+paso final 4, llegando al optimo.

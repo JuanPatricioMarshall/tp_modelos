@@ -1,0 +1,229 @@
+Inicio
+Buscando solucion:
+Default row names c1, c2 ... being created.
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_MIP_Interval                            1000
+CPXPARAM_TimeLimit                               1800
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Warning:  No solution found from 1 MIP starts.
+Tried aggregator 1 time.
+MIP Presolve eliminated 5285 rows and 0 columns.
+Reduced MIP has 6051 rows, 672 columns, and 12577 nonzeros.
+Reduced MIP has 665 binaries, 7 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.03 sec. (15.46 ticks)
+Found incumbent of value 140.000000 after 0.08 sec. (41.51 ticks)
+Probing time = 0.00 sec. (1.37 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 6051 rows, 672 columns, and 12577 nonzeros.
+Reduced MIP has 665 binaries, 7 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (13.32 ticks)
+Probing time = 0.02 sec. (1.47 ticks)
+Clique table members: 5380.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (30.03 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                          140.0000        0.0000           100.00%
+*     0+    0                          138.0000        0.0000           100.00%
+      0     0       20.0000   425      138.0000       20.0000      579   85.51%
+*     0+    0                          125.0000       20.0000            84.00%
+      0     0       27.2798   350      125.0000     Cuts: 546     1247   77.60%
+      0     0       33.0582   393      125.0000     Cuts: 588     2212   73.55%
+*     0+    0                          118.0000       33.0582            71.98%
+      0     0       34.7448   412      118.0000     Cuts: 468     2890   70.56%
+*     0+    0                          115.0000       34.7448            69.79%
+      0     0       36.0000   430      115.0000     Cuts: 330     3532   68.70%
+*     0+    0                          114.0000       36.0000            68.42%
+      0     0       36.0000   441      114.0000     Cuts: 357     3847   68.42%
+Detecting symmetries...
+      0     0       36.0000   385      114.0000      Cuts: 96     4086   60.86%
+*     0+    0                          112.0000       44.6216            60.16%
+      0     0  -1.00000e+75     0      112.0000       44.6216     4086   60.16%
+*     0+    0                          108.0000       44.6216            58.68%
+      0     0       36.0000   385      108.0000     Cuts: 390     4738   58.68%
+*     0+    0                          106.0000       44.6216            57.90%
+      0     0  -1.00000e+75     0      106.0000       44.6216     4738   57.90%
+Detecting symmetries...
+      0     2       36.0000   312      106.0000       44.6216     5135   57.90%
+Elapsed time = 2.61 sec. (1704.02 ticks, tree = 0.02 MB, solutions = 9)
+*   266+  211                          105.0000       46.1530            56.04%
+*   271+  211                          103.0000       46.1530            55.19%
+*   350+  261                          101.0000       46.1530            54.30%
+*   511   388      integral     0      100.0000       53.0893    74144   46.91%
+*   706   503      integral     0       99.0000       58.0000    99906   41.41%
+*   712   522      integral     0       98.0000       58.0000   104329   40.82%
+*   846+  599                           97.0000       58.0000            40.21%
+*   853   630      integral     0       96.0000       58.0000   122903   39.58%
+   1000   701       90.0000   162       96.0000       60.0000   134358   37.50%
+*  1718  1165      integral     0       95.0000       64.0952   267119   32.53%
+   2000  1266    infeasible             95.0000       65.5237   319335   31.03%
+*  2340  1422      integral     0       94.0000       67.5965   379605   28.09%
+*  2434  1436      integral     0       93.0000       68.3699   394052   26.48%
+   3000  1607    infeasible             93.0000       71.0000   513228   23.66%
+   4000  1920       83.7053   211       93.0000       74.0000   700313   20.43%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 628 rows and 41 columns.
+MIP Presolve modified 164 coefficients.
+Reduced MIP has 5423 rows, 631 columns, and 11280 nonzeros.
+Reduced MIP has 624 binaries, 7 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (10.59 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 5423 rows, 631 columns, and 11280 nonzeros.
+Reduced MIP has 624 binaries, 7 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (12.03 ticks)
+Represolve time = 0.05 sec. (33.90 ticks)
+   4867     0       39.0297   367       93.0000     Cuts: 459   916056   19.35%
+   4867     0       39.4383   314       93.0000     Cuts: 234   917423   19.35%
+   4867     0       39.4975   317       93.0000     Cuts: 265   917919   19.35%
+   4867     0       39.5193   301       93.0000      Cuts: 71   918085   19.35%
+   4867     0       39.5749   314       93.0000     Cuts: 275   918554   19.35%
+   4867     0       40.0925   338       93.0000     Cuts: 122   919841   19.35%
+   4867     0       40.3620   341       93.0000     Cuts: 165   920233   19.35%
+   5000    48       72.0000   197       93.0000       75.0000   935202   19.35%
+   6000   656       76.9886   258       93.0000       75.0000  1083799   19.35%
+*  6763  1043      integral     0       92.0000       75.0000  1207586   18.48%
+   7000  1082       76.1951   199       92.0000       75.0000  1249054   18.48%
+*  7399+ 1156                           91.0000       75.0000            17.58%
+   8000  1279       75.0000   174       91.0000       75.0000  1388697   17.58%
+   9000  1517       77.1390   181       91.0000       75.0000  1542148   17.58%
+  10000  1627        cutoff             91.0000       76.0000  1711104   16.48%
+Elapsed time = 39.48 sec. (24166.33 ticks, tree = 2.97 MB, solutions = 24)
+  11000  1724       79.0691   159       91.0000       76.0000  1895946   16.48%
+  12000  1531       77.0000   156       91.0000       76.9267  2056131   15.47%
+  13000  1278    infeasible             91.0000       78.0000  2209449   14.29%
+  14000   733        cutoff             91.0000       79.0000  2382310   13.19%
+  15000   373       86.0556   236       91.0000       83.8889  2528846    7.81%
+
+Implied bound cuts applied:  34
+Flow cuts applied:  22
+Mixed integer rounding cuts applied:  70
+Zero-half cuts applied:  94
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    2.55 sec. (1652.66 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   54.14 sec. (30458.51 ticks)
+  Sync time (average)   =    5.08 sec.
+  Wait time (average)   =    2.81 sec.
+                          ------------
+Total (root+branch&cut) =   56.69 sec. (32111.17 ticks)
+Solution status 101.
+Objective value 91
+Column   0 (       x_1):  Value =                20
+Column   1 (       x_2):  Value =                20
+Column   2 (       x_3):  Value =                18
+Column   3 (       x_4):  Value =                16
+Column   4 (       x_5):  Value =                 9
+Column   5 (       x_6):  Value =                 6
+Column   6 (       x_7):  Value =                 2
+Column  10 (     x_1_4):  Value =                 1
+Column  14 (     x_2_1):  Value =                 1
+Column  25 (     x_3_5):  Value =                 1
+Column  32 (     x_4_5):  Value =                 1
+Column  36 (     x_5_2):  Value =                 1
+Column  43 (     x_6_2):  Value =                 1
+Column  54 (     x_7_6):  Value =                 1
+Column  58 (     x_8_3):  Value =                 1
+Column  65 (     x_9_3):  Value =                 1
+Column  71 (    x_10_2):  Value =                 1
+Column  80 (    x_11_4):  Value =                 1
+Column  87 (    x_12_4):  Value =                 1
+Column  91 (    x_13_1):  Value =                 1
+Column 101 (    x_14_4):  Value =                 1
+Column 110 (    x_15_6):  Value =                 1
+Column 115 (    x_16_4):  Value =                 1
+Column 121 (    x_17_3):  Value =                 1
+Column 126 (    x_18_1):  Value =                 1
+Column 135 (    x_19_3):  Value =                 1
+Column 142 (    x_20_3):  Value =                 1
+Column 152 (    x_21_6):  Value =                 1
+Column 157 (    x_22_4):  Value =                 1
+Column 165 (    x_23_5):  Value =                 1
+Column 169 (    x_24_2):  Value =                 1
+Column 175 (    x_25_1):  Value =                 1
+Column 188 (    x_26_7):  Value =                 1
+Column 189 (    x_27_1):  Value =                 1
+Column 196 (    x_28_1):  Value =                 1
+Column 204 (    x_29_2):  Value =                 1
+Column 211 (    x_30_2):  Value =                 1
+Column 219 (    x_31_3):  Value =                 1
+Column 226 (    x_32_3):  Value =                 1
+Column 232 (    x_33_2):  Value =                 1
+Column 242 (    x_34_5):  Value =                 1
+Column 246 (    x_35_2):  Value =                 1
+Column 252 (    x_36_1):  Value =                 1
+Column 265 (    x_37_7):  Value =                 1
+Column 266 (    x_38_1):  Value =                 1
+Column 274 (    x_39_2):  Value =                 1
+Column 281 (    x_40_2):  Value =                 1
+Column 287 (    x_41_1):  Value =                 1
+Column 296 (    x_42_3):  Value =                 1
+Column 303 (    x_43_3):  Value =                 1
+Column 308 (    x_44_1):  Value =                 1
+Column 315 (    x_45_1):  Value =                 1
+Column 326 (    x_46_5):  Value =                 1
+Column 332 (    x_47_4):  Value =                 1
+Column 339 (    x_48_4):  Value =                 1
+Column 343 (    x_49_1):  Value =                 1
+Column 352 (    x_50_3):  Value =                 1
+Column 361 (    x_51_5):  Value =                 1
+Column 365 (    x_52_2):  Value =                 1
+Column 373 (    x_53_3):  Value =                 1
+Column 380 (    x_54_3):  Value =                 1
+Column 387 (    x_55_3):  Value =                 1
+Column 394 (    x_56_3):  Value =                 1
+Column 400 (    x_57_2):  Value =                 1
+Column 409 (    x_58_4):  Value =                 1
+Column 416 (    x_59_4):  Value =                 1
+Column 420 (    x_60_1):  Value =                 1
+Column 429 (    x_61_3):  Value =                 1
+Column 436 (    x_62_3):  Value =                 1
+Column 442 (    x_63_2):  Value =                 1
+Column 449 (    x_64_2):  Value =                 1
+Column 455 (    x_65_1):  Value =                 1
+Column 468 (    x_66_7):  Value =                 1
+Column 471 (    x_67_3):  Value =                 1
+Column 477 (    x_68_2):  Value =                 1
+Column 483 (    x_69_1):  Value =                 1
+Column 494 (    x_70_5):  Value =                 1
+Column 498 (    x_71_2):  Value =                 1
+Column 504 (    x_72_1):  Value =                 1
+Column 513 (    x_73_3):  Value =                 1
+Column 518 (    x_74_1):  Value =                 1
+Column 525 (    x_75_1):  Value =                 1
+Column 533 (    x_76_2):  Value =                 1
+Column 540 (    x_77_2):  Value =                 1
+Column 548 (    x_78_3):  Value =                 1
+Column 553 (    x_79_1):  Value =                 1
+Column 562 (    x_80_3):  Value =                 1
+Column 571 (    x_81_5):  Value =                 1
+Column 575 (    x_82_2):  Value =                 1
+Column 581 (    x_83_1):  Value =                 1
+Column 590 (    x_84_3):  Value =                 1
+Column 597 (    x_85_3):  Value =                 1
+Column 603 (    x_86_2):  Value =                 1
+Column 611 (    x_87_3):  Value =                 1
+Column 617 (    x_88_2):  Value =                 1
+Column 625 (    x_89_3):  Value =                 1
+Column 630 (    x_90_1):  Value =                 1
+Column 637 (    x_91_1):  Value =                 1
+Column 644 (    x_92_1):  Value =                 1
+Column 652 (    x_93_2):  Value =                 1
+Column 661 (    x_94_4):  Value =                 1
+Column 670 (    x_95_6):  Value =                 1
+
+Optimo: 91.000000
+Cota: 91.000000
+Nodos: 15490
+Tiempo: 56.781000
