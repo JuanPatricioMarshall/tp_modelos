@@ -1,0 +1,14 @@
+- Ideas de como van a resolver esta instancia
+Primero voy a seguir los pasos del enunciado.
+Voy a comprobar mi heuristica de la entrega anterior frente al input nuevo y ver que puntaje estoy consiguiendo. Asumiria
+que mi heuristica estaba "floja de papeles" y que no es la solucion optima.
+Mediante branch & cut deberia poder llegar a la solucion optima, pero asi como esta configurado no se llega nunca.
+
+Analizando el dataset antes de correr nada veo que:
+Pasamos de tener 385 prendas y 19095 restricciones a 95 prendas y 755 restricciones. Los pesos siguen estando entre 1 y 20.
+Luego de correrlo con mi heuristica, llegue a un puntaje de 111, peor que los que ya estan en el rankin y obviamente peor que el optimo.
+Subo esta solucion inicial y a mitad de los pasos para ya tener subido algo.
+
+- Comentarios sobre el impacto de los pasos que van aplicando
+
+- Comentarios finales
